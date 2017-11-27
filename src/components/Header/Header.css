@@ -1,0 +1,13 @@
+.header-container {
+	display: flex;
+	border-bottom: 1px solid #ccc;
+	flex-direction: row;
+	padding-bottom: 10px;
+}
+
+.circle-logo {
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	background: red;
+}
