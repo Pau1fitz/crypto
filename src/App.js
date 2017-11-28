@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { getHeadlines } from './actions/headlineActions';
 import { getPrices } from './actions/priceActions';
+import { getArticles } from './actions/articleActions';
 import './App.css';
 
 // components
@@ -16,6 +17,7 @@ class App extends Component {
 	componentDidMount() {
 		this.props.getHeadlines();
 		this.props.getPrices();
+		this.props.getArticles();
 	}
 
 	render() {
@@ -42,7 +44,7 @@ const mapStateToProps = (state) => {
 
 	return {
 		headlines: state.headlineReducer.headlines,
-		prices: state.pricesReducer.prices
+		prices: state.priceReducer.prices
 	};
 
 };
@@ -51,7 +53,8 @@ const mapDispatchToProps = dispatch => {
 
 	return bindActionCreators({
 		getHeadlines,
-		getPrices
+		getPrices,
+		getArticles
 	},dispatch);
 
 };

@@ -2,7 +2,7 @@ const defaultState = {
 	prices: []
 };
 
-export const pricesReducer = (state = defaultState, action) => {
+export const priceReducer = (state = defaultState, action) => {
 
 	switch (action.type) {
 
@@ -33,4 +33,4 @@ export const pricesReducer = (state = defaultState, action) => {
 
 };
 
-export default pricesReducer;
+export default priceReducer;

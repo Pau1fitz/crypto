@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
 import headlineReducer from './headlineReducer';
-import pricesReducer from './pricesReducer';
+import priceReducer from './priceReducer';
+import articleReducer from './articleReducer';
 
 export default combineReducers({
 	headlineReducer,
-	pricesReducer
+	priceReducer,
+	articleReducer
 });

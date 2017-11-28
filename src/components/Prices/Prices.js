@@ -10,8 +10,10 @@ class Prices extends Component {
 			return (
 				<li className="price-item" key={ price.symbol }>
 					<p className='symbol'>{ price.symbol } / USD</p>
-					<p className='price'> <span className='dollar'>$ </span>{ price.price_usd }</p>
-					<p className={price.percent_change_24h > 0 ? 'positive' : 'negative'}>{ price.percent_change_24h > 0 ? `+${price.percent_change_24h}` : `${price.percent_change_24h}` }</p>
+					<div className='price-container'>
+						<p className='price'> <span className='dollar'>$ </span>{ parseFloat(price.price_usd).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,') }</p>
+						<p className={price.percent_change_24h > 0 ? 'positive' : 'negative'}>{ price.percent_change_24h > 0 ? `+${price.percent_change_24h}` : `${price.percent_change_24h}` }</p>
+					</div>
 				</li>
 			);
 		});
