@@ -9,17 +9,39 @@ class Ticker extends Component {
 		left: 0
 	}
 
-
 	componentDidMount() {
+
+		setTimeout(() => {
+			let width = 0;
+			console.log(this.tickerItems.children.length);
+
+			let childItems = this.tickerItems.children;
+
+			for(var i=0; i<childItems.length; i++) {
+				width += childItems[i].offsetWidth;
+			}
+
+			this.setState({
+				width
+			});
+		}, 1000);
+
 		setInterval(() => {
 			this.setState((prevState) => {
-				return {
-					left:  prevState.left - 1
-				};
+
+				if((prevState.left * -1 > prevState.width)) {
+					return {
+						left: 0
+					}
+				} else {
+					return {
+						left:  prevState.left - 1
+					};
+				}
+
 			});
 		}, 20);
 	}
-
 
 	render() {
 

@@ -6,6 +6,7 @@ import { getHeadlines } from './actions/headlineActions';
 import './App.css';
 
 // components
+import Header from './components/Header';
 import Ticker from './components/Ticker';
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
+				<Header />
 				<Ticker headlines={ this.props.headlines } />
 			</div>
 		);

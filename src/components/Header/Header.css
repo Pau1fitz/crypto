@@ -2,12 +2,14 @@
 	display: flex;
 	border-bottom: 1px solid #ccc;
 	flex-direction: row;
-	padding-bottom: 10px;
+	align-items: center;
+	padding: 15px;
 }
 
 .circle-logo {
-	height: 50px;
-	width: 50px;
+	height: 25px;
+	width: 25px;
 	border-radius: 50%;
 	background: red;
+	margin: 0 15px 0 20px;
 }
