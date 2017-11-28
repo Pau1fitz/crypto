@@ -6,3 +6,15 @@ html, body, h1, h2, p, ul, li {
 .App {
 	font-family: 'Arvo', serif;
 }
+
+.main-container {
+	display: flex;
+}
+
+.main-content {
+	flex: 5 0px;
+}
+
+.prices-content {
+	flex: 1 0px;
+}

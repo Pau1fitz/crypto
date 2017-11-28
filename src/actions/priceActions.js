@@ -1,8 +1,8 @@
 export const getPricesPending = () => {
 	return {
 		type: 'GET_PRICES_PENDING'
-	}
-}
+	};
+};
 
 export const getPricesSuccess = (prices) => {
 	return {

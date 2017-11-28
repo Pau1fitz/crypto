@@ -22,8 +22,16 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Header />
-				<Prices prices={ this.props.prices } />
+
+				<div className='main-container'>
+					<div className='main-content' />
+					<div className='prices-content'>
+						<Prices prices={ this.props.prices } />
+					</div>
+				</div>
+
 				<Ticker headlines={ this.props.headlines } />
+
 			</div>
 		);
 	}
@@ -50,7 +58,9 @@ const mapDispatchToProps = dispatch => {
 
 App.propTypes = {
 	getHeadlines: PropTypes.func,
-	headlines: PropTypes.array
+	getPrices: PropTypes.func,
+	headlines: PropTypes.array,
+	prices: PropTypes.array
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

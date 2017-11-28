@@ -1,27 +1,46 @@
 .prices-container {
 	display: flex;
-	padding: 15px;
+	margin-bottom: 30px
 }
 
 .price-item {
+	align-items: flex-end;
 	background: rgb(60, 60, 60);
 	border-radius: 4px;
-	padding: 15px;
+	padding: 15px 5px 15px 15px;
 	margin: 10px 0;
 	background: rgb(248, 248, 248);
 	color: #000;
+	list-style-type: none;
 }
 
 .currency-icon {
 	width: 30px;
 }
 
+.symbol {
+	font-size: 14px;
+}
+
 .price {
-	font-size: 18px;
+	font-size: 20px;
+	display: inline-block;
 }
 
 .dollar {
 	font-size: 24px;
 	position: relative;
 	top: 2px;
+}
+
+.positive {
+	color: rgb(110, 225, 167);
+	display: inline-block;
+  padding-left: 12px;
+}
+
+.negative {
+	color: rgb(252, 168, 168);
+	display: inline-block;
+	padding-left: 12px;
 }

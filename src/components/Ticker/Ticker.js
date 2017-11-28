@@ -13,11 +13,8 @@ class Ticker extends Component {
 
 		setTimeout(() => {
 			let width = 0;
-			console.log(this.tickerItems.children.length);
-
 			let childItems = this.tickerItems.children;
-
-			for(var i=0; i<childItems.length; i++) {
+			for(let i=0; i<childItems.length; i++) {
 				width += childItems[i].offsetWidth;
 			}
 
@@ -32,7 +29,7 @@ class Ticker extends Component {
 				if((prevState.left * -1 > prevState.width)) {
 					return {
 						left: 0
-					}
+					};
 				} else {
 					return {
 						left:  prevState.left - 1
@@ -61,8 +58,6 @@ class Ticker extends Component {
 			</div>
 		);
 	}
-
-
 
 };
 
