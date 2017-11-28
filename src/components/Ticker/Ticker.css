@@ -1,0 +1,11 @@
+.ticker-section {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 30px;
+	background: #ffde00;
+}
+
+.ticker-container {
+	display: flex;
+}

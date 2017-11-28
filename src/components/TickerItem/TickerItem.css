@@ -1,0 +1,8 @@
+.ticker-item {
+	list-style-type: none;
+	white-space: nowrap;
+	margin-right: 20px;
+	position: relative;
+	top: 8px;
+	font-size: 12px;
+}

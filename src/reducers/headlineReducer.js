@@ -1,4 +1,8 @@
-export const headlineReducer = (state = {}, action) => {
+const defaultState = {
+	headlines: []
+};
+
+export const headlineReducer = (state = defaultState, action) => {
 
 	switch (action.type) {
 

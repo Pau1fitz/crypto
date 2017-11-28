@@ -1,28 +1,48 @@
 import React, { Component } from 'react';
-import Header from './components/Header';
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { getHeadlines } from './actions/headlineActions';
 import './App.css';
+
+// components
+import Ticker from './components/Ticker';
 
 class App extends Component {
 
 	componentDidMount() {
-
-		fetch('https://newsapi.org/v2/top-headlines?q=bitcoin&apiKey=b0069dc818df4b2a89841b2282f19e58').then(res => {
-			return res.json();
-		}).then(res => {
-			console.log(res);
-		}).catch(err => {
-			console.log(err);
-		});
-		
+		this.props.getHeadlines();
 	}
 
-  render() {
-    return (
-      <div className="App">
-        <Header />
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div className="App">
+				<Ticker headlines={ this.props.headlines } />
+			</div>
+		);
+	}
 }
 
-export default App;
+
+const mapStateToProps = (state) => {
+
+	return {
+		headlines: state.headlineReducer.headlines
+	};
+
+};
+
+const mapDispatchToProps = dispatch => {
+
+	return bindActionCreators({
+		getHeadlines
+	},dispatch);
+
+};
+
+App.propTypes = {
+	getHeadlines: PropTypes.func,
+	headlines: PropTypes.array
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
