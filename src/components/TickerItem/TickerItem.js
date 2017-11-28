@@ -7,7 +7,7 @@ class TickerItem extends Component {
 	render() {
 		return (
 			<li className='ticker-item'>
-				{this.props.headline.title}
+				{this.props.headline.title}	
 			</li>
 		);
 	}

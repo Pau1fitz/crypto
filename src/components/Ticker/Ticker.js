@@ -47,7 +47,9 @@ class Ticker extends Component {
 
 		let headlineTickerItems = this.props.headlines.map(headline => {
 			return (
-				<TickerItem left={this.state.left} headline={headline} key={headline.title} />
+				<a href={ headline.url } key={headline.title}>
+					<TickerItem left={this.state.left} headline={headline}  />
+				</a>
 			);
 		});
 
