@@ -12,6 +12,12 @@ export const articleReducer = (state = defaultState, action) => {
 			getArticlesPending: true
 		};
 
+	case "GET_MAIN_ARTICLE_SUCCESS":
+		return {
+			...state,
+			mainArticle: action.mainArticle
+		};
+
 	case "GET_ARTICLES_SUCCESS":
 		return {
 			...state,

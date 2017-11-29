@@ -1,22 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './MainArticle.css';
 
-const MainArticle = ({ article }) => {
+const MainArticle = ({ mainArticle }) => {
 
 	return (
 
 		<div>
 
-			{article && (
+			{mainArticle && (
 
 				<div className='main-article-container'>
-					<a href={ article.url }>
-						<div style={{backgroundImage: `url(${article.urlToImage})`}} className='main-image'>
-							<p className='article-title'>{ article.title }</p>
+					<a href={ mainArticle.url }>
+						<div style={{backgroundImage: `url(${mainArticle.urlToImage})`}} className='main-image'>
+							<p className='article-title'>{ mainArticle.title }</p>
 						</div>
 						<div className='article-info'>
-							<p className='article-author'>by { article.author }</p>
-							<p className='artice-description'>{ article.description }</p>
+							<p className='article-author'>by { mainArticle.author }</p>
+							<p className='artice-description'>{ mainArticle.description }</p>
 						</div>
 					</a>
 				</div>
@@ -25,6 +26,10 @@ const MainArticle = ({ article }) => {
 
 
 	);
+};
+
+MainArticle.propTypes = {
+	mainArticle: PropTypes.object
 };
 
 export default MainArticle;

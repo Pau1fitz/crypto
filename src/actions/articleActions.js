@@ -6,6 +6,13 @@ export const getArticlesPending = () => {
 	};
 };
 
+export const getMainArticlesSuccess = (mainArticle) => {
+	return {
+		'type': 'GET_MAIN_ARTICLE_SUCCESS',
+		mainArticle
+	};
+};
+
 export const getArticlesSuccess = (articles) => {
 	return {
 		'type': 'GET_ARTICLES_SUCCESS',
@@ -27,7 +34,12 @@ export const getArticles = () => {
 		}).then(res => {
 			res.articles = uniqBy(res.articles, (article) => {
 				return article.title;
+			}).filter(article => {
+				// remove no articles without an image
+				return article.urlToImage != null;
 			});
+			let mainArticle = res.articles.shift();
+			dispatch(getMainArticlesSuccess(mainArticle));
 			dispatch(getArticlesSuccess(res.articles));
 		}).catch(err => {
 			dispatch(getArticlesError(err));
