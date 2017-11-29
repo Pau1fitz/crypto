@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import NewsItem from '../NewsItem';
 import './NewsSection.css';
 
 class NewsSection extends Component {
@@ -22,16 +23,10 @@ class NewsSection extends Component {
 		const { articles, title } = this.props;
 
 		let articleList = articles.map((article, index) => {
+
 			if(index < numberItemsDisplay){
 				return (
-					<li className='main-news-item' key={article.publishedAt}>
-						<a href={ article.url }>
-							<div className='image-container'>
-								<img src={ article.urlToImage } alt='article-image' />
-							</div>
-							<p className='title-text'>{ article.title }</p>
-						</a>
-					</li>
+					<NewsItem article={article} key={article.url} />
 				);
 			}
 		});
