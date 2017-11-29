@@ -22,7 +22,7 @@ export const getHeadlinesError= () => {
 export const getHeadlines = () => {
 	return dispatch => {
 		dispatch(getHeadlinesPending());
-		fetch('https://newsapi.org/v2/top-headlines?q=bitcoin&apiKey=b0069dc818df4b2a89841b2282f19e58').then(res => {
+		fetch('https://newsapi.org/v2/top-headlines?q=bitcoin&language=en&apiKey=b0069dc818df4b2a89841b2282f19e58').then(res => {
 			return res.json();
 		}).then(res => {
 

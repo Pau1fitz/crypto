@@ -22,7 +22,7 @@ export const getArticlesError= () => {
 export const getArticles = () => {
 	return dispatch => {
 		dispatch(getArticlesPending());
-		fetch('https://newsapi.org/v2/everything?q=bitcoin&sortBy=popularity&apiKey=b0069dc818df4b2a89841b2282f19e58').then(res => {
+		fetch('https://newsapi.org/v2/everything?q=bitcoin&language=en&from=2017-11-29&to=2017-11-29&language=en&sortBy=popularity&apiKey=b0069dc818df4b2a89841b2282f19e58').then(res => {
 			return res.json();
 		}).then(res => {
 			res.articles = uniqBy(res.articles, (article) => {
