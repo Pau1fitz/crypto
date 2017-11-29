@@ -1,15 +1,31 @@
 const defaultState = {
-	articles: []
+	popularArticles: [],
+	recentArticles: []
 };
 
 export const articleReducer = (state = defaultState, action) => {
 
 	switch (action.type) {
 
-	case "GET_ARTICLES_PENDING":
+	case "GET_POPULAR_ARTICLES_PENDING":
 		return {
 			...state,
-			getArticlesPending: true
+			getPopularArticlesPending: true
+		};
+
+	case "GET_POPULAR_ARTICLES_SUCCESS":
+		return {
+			...state,
+			popularArticles: action.popularArticles,
+			getPopularArticlesError: false,
+			getPopularArticlesPending: false
+		};
+
+	case "GET_POPULAR_ARTICLES_ERROR":
+		return {
+			...state,
+			getPopularArticlesError: true,
+			getPopularArticlesPending: false
 		};
 
 	case "GET_MAIN_ARTICLE_SUCCESS":
@@ -18,20 +34,29 @@ export const articleReducer = (state = defaultState, action) => {
 			mainArticle: action.mainArticle
 		};
 
-	case "GET_ARTICLES_SUCCESS":
+	case "GET_RECENT_ARTICLES_PENDING":
 		return {
 			...state,
-			articles: action.articles,
-			getArticlesError: false,
-			getArticlesPending: false
+			getRecentArticlesPending: true
 		};
 
-	case "GET_ARTICLES_ERROR":
+	case "GET_RECENT_ARTICLES_SUCCESS":
 		return {
 			...state,
-			getArticlesError: true,
-			getArticlesPending: false
+			recentArticles: action.recentArticles,
+			getRecentArticlesError: false,
+			getRecentArticlesPending: false
 		};
+
+	case "GET_RECENT_ARTICLES_ERROR":
+		return {
+			...state,
+			getRecentArticlesError: true,
+			getRecentArticlesPending: false
+		};
+
+
+
 
 	default:
 		return state;

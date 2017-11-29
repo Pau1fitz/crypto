@@ -13,6 +13,7 @@ html, body, h1, h2, p, ul, li {
 
 .main-content {
 	flex: 6 0px;
+	margin-bottom: 25px;
 }
 
 .prices-content {

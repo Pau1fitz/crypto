@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { getHeadlines } from './actions/headlineActions';
 import { getPrices } from './actions/priceActions';
-import { getArticles } from './actions/articleActions';
+import { getPopularArticles, getRecentArticles } from './actions/articleActions';
 import './App.css';
 
 // components
@@ -20,28 +20,26 @@ class App extends Component {
 	componentDidMount() {
 		this.props.getHeadlines();
 		this.props.getPrices();
-		this.props.getArticles();
+		this.props.getPopularArticles();
+		this.props.getRecentArticles();
 	}
 
 	render() {
 		return (
 			<div className="App">
 				<Header />
-
 				<div className='main-container'>
-
 					<div className='main-content'>
 						<MainArticle mainArticle={ this.props.mainArticle } />
-						<NewsSection articles={ this.props.articles } />
+						<NewsSection title='Most Popular' articles={ this.props.popularArticles } />
+						<NewsSection title='Most Recent' articles={ this.props.recentArticles } />
+						<NewsSection title='Top Headlines' articles={ this.props.headlines } />
 					</div>
-
 					<div className='prices-content'>
 						<Prices prices={ this.props.prices } />
 					</div>
 				</div>
-
 				<Ticker headlines={ this.props.headlines } />
-
 			</div>
 		);
 	}
@@ -54,7 +52,8 @@ const mapStateToProps = (state) => {
 		headlines: state.headlineReducer.headlines,
 		prices: state.priceReducer.prices,
 		mainArticle: state.articleReducer.mainArticle,
-		articles: state.articleReducer.articles
+		popularArticles: state.articleReducer.popularArticles,
+		recentArticles: state.articleReducer.recentArticles
 	};
 
 };
@@ -64,18 +63,21 @@ const mapDispatchToProps = dispatch => {
 	return bindActionCreators({
 		getHeadlines,
 		getPrices,
-		getArticles
+		getPopularArticles,
+		getRecentArticles
 	},dispatch);
 
 };
 
 App.propTypes = {
 	getHeadlines: PropTypes.func,
-	getArticles: PropTypes.func,
+	getPopularArticles: PropTypes.func,
+	getRecentArticles: PropTypes.func,
 	getPrices: PropTypes.func,
 	headlines: PropTypes.array,
 	prices: PropTypes.array,
-	articles: PropTypes.array,
+	popularArticles: PropTypes.array,
+	recentArticles: PropTypes.array,
 	mainArticle: PropTypes.object
 };
 
