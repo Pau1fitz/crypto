@@ -26,17 +26,17 @@ export const getMainArticlesSuccess = (mainArticle) => {
 	};
 };
 
-export const getPopularArticles = () => {
+export const getPopularArticles = (currency) => {
 	return dispatch => {
 		dispatch(getPopularArticlesPending());
-		fetch('https://newsapi.org/v2/everything?q=bitcoin&language=en&from=2017-11-29&to=2017-11-29&language=en&sortBy=popularity&apiKey=b0069dc818df4b2a89841b2282f19e58').then(res => {
+		fetch(`https://newsapi.org/v2/everything?q=${currency}&language=en&from=2017-11-29&to=2017-11-29&language=en&sortBy=popularity&apiKey=b0069dc818df4b2a89841b2282f19e58`).then(res => {
 			return res.json();
 		}).then(res => {
 			res.articles = uniqBy(res.articles, (article) => {
 				return article.title;
 			}).filter(article => {
 				// remove no articles without an image
-				return article.urlToImage != null && article.urlToImage.charAt(0) == 'h' && article.description.indexOf('itcoin') !== -1;
+				return article.urlToImage != null && article.urlToImage.charAt(0) == 'h' && article.description.indexOf(currency.substr(1)) !== -1;
 			});
 			let mainArticle = res.articles.shift();
 			dispatch(getMainArticlesSuccess(mainArticle));
@@ -68,17 +68,17 @@ export const getRecentArticlesError= () => {
 };
 
 
-export const getRecentArticles = () => {
+export const getRecentArticles = (currency) => {
 	return dispatch => {
 		dispatch(getRecentArticlesPending());
-		fetch('https://newsapi.org/v2/everything?q=bitcoin&language=en&sortBy=publishedAt&apiKey=b0069dc818df4b2a89841b2282f19e58').then(res => {
+		fetch(`https://newsapi.org/v2/everything?q=${currency}&language=en&sortBy=publishedAt&apiKey=b0069dc818df4b2a89841b2282f19e58`).then(res => {
 			return res.json();
 		}).then(res => {
 			res.articles = uniqBy(res.articles, (article) => {
 				return article.title;
 			}).filter(article => {
 				// remove no articles without an image
-				return article.urlToImage != null && article.urlToImage.charAt(0) == 'h' && article.description.indexOf('itcoin') !== -1;
+				return article.urlToImage != null && article.urlToImage.charAt(0) == 'h' && article.description.indexOf(currency.substr(1)) !== -1;
 			});
 			dispatch(getRecentArticlesSuccess(res.articles));
 		}).catch(err => {

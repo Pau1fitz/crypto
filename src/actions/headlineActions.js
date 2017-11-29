@@ -19,10 +19,10 @@ export const getHeadlinesError= () => {
 	};
 };
 
-export const getHeadlines = () => {
+export const getHeadlines = (currency) => {
 	return dispatch => {
 		dispatch(getHeadlinesPending());
-		fetch('https://newsapi.org/v2/top-headlines?q=bitcoin&language=en&apiKey=b0069dc818df4b2a89841b2282f19e58').then(res => {
+		fetch(`https://newsapi.org/v2/top-headlines?q=${currency}&language=en&apiKey=b0069dc818df4b2a89841b2282f19e58`).then(res => {
 			return res.json();
 		}).then(res => {
 
@@ -30,7 +30,7 @@ export const getHeadlines = () => {
 				return article.title;
 			}).filter(article => {
 				// remove no articles without an image
-				return article.urlToImage != null && article.urlToImage.charAt(0) == 'h' && article.description.indexOf('itcoin') !== -1;
+				return article.urlToImage != null && article.urlToImage.charAt(0) == 'h' && article.description.indexOf(currency.substr(1)) !== -1;
 			});
 			dispatch(getHeadlinesSuccess(res.articles));
 		}).catch(err => {
