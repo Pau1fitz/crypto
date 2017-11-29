@@ -23,4 +23,7 @@
 
 .article-author {
 	padding: 10px 0;
+	color: rgb(160, 160, 160);
+	font-style: italic;
+	font-size: 14px;
 }
