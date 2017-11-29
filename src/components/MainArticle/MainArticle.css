@@ -18,7 +18,7 @@
 }
 
 .article-info {
-	line-height: 26px;
+	line-height: 24px;
 }
 
 .article-author {
@@ -30,4 +30,5 @@
 
 .artice-description {
 	color: #000;
+	font-size: 14px;
 }
