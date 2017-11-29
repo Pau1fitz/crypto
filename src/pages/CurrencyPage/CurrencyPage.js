@@ -6,12 +6,9 @@ import NewsSection from '../../components/NewsSection';
 class CurrencyPage extends Component {
 
 	componentDidMount() {
-
-		const currency = this.props.match.params.currency;
-		this.props.getHeadlines(currency);
-		this.props.getPopularArticles(currency);
-		this.props.getRecentArticles(currency);
-
+		this.props.getHeadlines('bitcoin');
+		this.props.getPopularArticles('bitcoin');
+		this.props.getRecentArticles('bitcoin');
 	}
 
 	render () {
@@ -21,9 +18,9 @@ class CurrencyPage extends Component {
 		return(
 			<div>
 				<MainArticle mainArticle={ mainArticle } />
+				<NewsSection title='Top Headlines' articles={ headlines } />
 				<NewsSection title='Most Popular' articles={ popularArticles } />
 				<NewsSection title='Most Recent' articles={ recentArticles } />
-				<NewsSection title='Top Headlines' articles={ headlines } />
 			</div>
 		);
 

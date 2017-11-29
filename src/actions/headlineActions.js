@@ -30,7 +30,7 @@ export const getHeadlines = (currency) => {
 				return article.title;
 			}).filter(article => {
 				// remove no articles without an image
-				return article.urlToImage != null && article.urlToImage.charAt(0) == 'h';
+				return article.urlToImage != null && article.urlToImage.charAt(0) == 'h' && article.description.indexOf(currency.substr(1)) !== -1;
 			});
 			dispatch(getHeadlinesSuccess(res.articles));
 		}).catch(err => {
