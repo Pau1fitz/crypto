@@ -36,7 +36,7 @@ export const getPopularArticles = () => {
 				return article.title;
 			}).filter(article => {
 				// remove no articles without an image
-				return article.urlToImage != null && article.urlToImage.charAt(0) == 'h';
+				return article.urlToImage != null && article.urlToImage.charAt(0) == 'h' && article.description.indexOf('itcoin') !== -1;
 			});
 			let mainArticle = res.articles.shift();
 			dispatch(getMainArticlesSuccess(mainArticle));
@@ -78,7 +78,7 @@ export const getRecentArticles = () => {
 				return article.title;
 			}).filter(article => {
 				// remove no articles without an image
-				return article.urlToImage != null && article.urlToImage.charAt(0) == 'h';
+				return article.urlToImage != null && article.urlToImage.charAt(0) == 'h' && article.description.indexOf('itcoin') !== -1;
 			});
 			dispatch(getRecentArticlesSuccess(res.articles));
 		}).catch(err => {

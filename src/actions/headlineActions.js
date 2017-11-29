@@ -28,6 +28,9 @@ export const getHeadlines = () => {
 
 			res.articles = uniqBy(res.articles, (article) => {
 				return article.title;
+			}).filter(article => {
+				// remove no articles without an image
+				return article.urlToImage != null && article.urlToImage.charAt(0) == 'h' && article.description.indexOf('itcoin') !== -1;
 			});
 			dispatch(getHeadlinesSuccess(res.articles));
 		}).catch(err => {
