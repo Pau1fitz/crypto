@@ -7,10 +7,12 @@ const NewsSection = ({ articles }) => {
 	let articleList = articles.map(article => {
 		return (
 			<li className='main-news-item' key={article.publishedAt}>
-				<div className='image-container'>
-					<img src={ article.urlToImage } alt='article-image' />
-				</div>
-				<p className='title-text'>{ article.title }</p>
+				<a href={ article.url }>
+					<div className='image-container'>
+						<img src={ article.urlToImage } alt='article-image' />
+					</div>
+					<p className='title-text'>{ article.title }</p>
+				</a>
 			</li>
 		);
 	});
@@ -22,6 +24,8 @@ const NewsSection = ({ articles }) => {
 			{articles && (
 
 				<div className='main-news-section'>
+
+					<h2 className='section-title'>Headlines</h2>
 
 					<ul className='main-news-container'>
 						{ articleList }

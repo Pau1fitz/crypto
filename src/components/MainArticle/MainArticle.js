@@ -11,6 +11,9 @@ const MainArticle = ({ mainArticle }) => {
 			{mainArticle && (
 
 				<div className='main-article-container'>
+
+					<h2 className='section-title'>Top Story</h2>
+
 					<a href={ mainArticle.url }>
 						<div style={{backgroundImage: `url(${mainArticle.urlToImage})`}} className='main-image'>
 							<p className='article-title'>{ mainArticle.title }</p>

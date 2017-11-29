@@ -3,7 +3,7 @@
 	border-bottom: 1px solid #ccc;
 	flex-direction: row;
 	align-items: center;
-	padding: 15px;
+	padding: 15px 0;
 }
 
 .circle-logo {
@@ -11,5 +11,5 @@
 	width: 25px;
 	border-radius: 50%;
 	background: #ffde00;
-	margin: 0 15px 0 20px;
+	margin: 0 10px 0 15px;
 }

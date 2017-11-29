@@ -32,3 +32,9 @@
 	color: #000;
 	font-size: 14px;
 }
+
+.main-article-container .section-title {
+	margin-bottom: 15px;
+	padding-left: 10px;
+	border-left: 5px solid #ffde00;
+}

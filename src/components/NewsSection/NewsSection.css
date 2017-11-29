@@ -1,8 +1,17 @@
+.main-news-section {
+	padding: 15px 20px 15px 20px;
+}
+
 .main-news-container {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	padding: 15px 20px 15px 20px;
+}
+
+.main-news-section .section-title {
+	margin-bottom: 15px;
+	padding-left: 10px;
+	border-left: 5px solid #ffde00;
 }
 
 .main-news-item {
@@ -19,4 +28,5 @@
 .title-text {
 	font-size: 12px;
 	padding: 10px 0;
+	color: #000;
 }
