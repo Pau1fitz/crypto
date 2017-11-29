@@ -1,0 +1,22 @@
+.main-image {
+	height: 400px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	position: relative;
+}
+
+.article-title {
+	position: absolute;
+	top: 50%;
+	left: 25px;
+	font-size: 50px;
+}
+
+.article-info {
+	line-height: 26px;
+}
+
+.article-author {
+	padding: 10px 0;
+}

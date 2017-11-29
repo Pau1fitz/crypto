@@ -11,6 +11,7 @@ import './App.css';
 import Header from './components/Header';
 import Ticker from './components/Ticker';
 import Prices from './components/Prices';
+import MainArticle from './components/MainArticle';
 
 class App extends Component {
 
@@ -26,7 +27,11 @@ class App extends Component {
 				<Header />
 
 				<div className='main-container'>
-					<div className='main-content' />
+
+					<div className='main-content'>
+						<MainArticle article={ this.props.articles[0] } />
+					</div>
+
 					<div className='prices-content'>
 						<Prices prices={ this.props.prices } />
 					</div>
@@ -44,7 +49,8 @@ const mapStateToProps = (state) => {
 
 	return {
 		headlines: state.headlineReducer.headlines,
-		prices: state.priceReducer.prices
+		prices: state.priceReducer.prices,
+		articles: state.articleReducer.articles
 	};
 
 };
@@ -63,7 +69,8 @@ App.propTypes = {
 	getHeadlines: PropTypes.func,
 	getPrices: PropTypes.func,
 	headlines: PropTypes.array,
-	prices: PropTypes.array
+	prices: PropTypes.array,
+	articles: PropTypes.array
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
