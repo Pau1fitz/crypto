@@ -11,7 +11,7 @@ import Header from './components/Header';
 import Ticker from './components/Ticker';
 import Prices from './components/Prices';
 import CurrencyPage from './pages/CurrencyPage';
-
+import NewsSourcePage from './pages/NewsSourcePage';
 
 class App extends Component {
 
@@ -29,7 +29,8 @@ class App extends Component {
 					<Header />
 					<div className='main-container'>
 						<div className='main-content'>
-							<Route path="/:currency" render={(routeProps)=>	<CurrencyPage {...routeProps} />}/>
+							<Route path="/" render={(routeProps)=>	<CurrencyPage {...routeProps} />}/>
+							<Route path="/sources" render={(routeProps)=>	<NewsSourcePage {...routeProps} />}/>
 						</div>
 						<div className='prices-content'>
 							<Prices prices={ this.props.prices } />
