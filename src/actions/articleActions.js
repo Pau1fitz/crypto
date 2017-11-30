@@ -44,6 +44,7 @@ export const getPopularArticles = (currency) => {
 		}).catch(err => {
 			dispatch(getPopularArticlesError(err));
 		});
+
 	};
 };
 
@@ -83,6 +84,23 @@ export const getRecentArticles = (currency) => {
 			dispatch(getRecentArticlesSuccess(res.articles));
 		}).catch(err => {
 			dispatch(getRecentArticlesError(err));
+		});
+
+		const url = 'https://content.guardianapis.com/search?q=bitcoin&page-size=20&order-by=newest&api-key=0b413069-ba51-4cbb-aac8-2c0145d3dcb3'
+		fetch(url).then(res => {
+			return res.json();
+		}).then(res => {
+			let articles = res.response.results.filter(article => {
+				return article.id.includes('bitcoin');
+			}).map(article => {
+				return {
+					title: article.webTitle,
+					url: article.webUrl,
+					publishedAt: article.webPublicationDate,
+					urlToImage: 'https://tctechcrunch2011.files.wordpress.com/2014/02/bitcoin-perfecthue.jpg'
+				}
+			});
+			dispatch(getRecentArticlesSuccess(articles));
 		});
 	};
 };

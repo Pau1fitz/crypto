@@ -43,7 +43,7 @@ export const articleReducer = (state = defaultState, action) => {
 	case "GET_RECENT_ARTICLES_SUCCESS":
 		return {
 			...state,
-			recentArticles: action.recentArticles,
+			recentArticles: state.recentArticles.concat(action.recentArticles),
 			getRecentArticlesError: false,
 			getRecentArticlesPending: false
 		};

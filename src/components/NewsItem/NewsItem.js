@@ -20,7 +20,7 @@ class NewsItem extends Component {
 					<div className='image-container'>
 						<img onError={this.addDefaultImg} src={ image } alt='article-image' />
 					</div>
-					<p className='title-text'>{ article.title }</p>
+					<p className='title-text'>{ article.title  }</p>
 				</a>
 			</li>
 		);
