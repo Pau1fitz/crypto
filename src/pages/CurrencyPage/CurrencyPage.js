@@ -6,7 +6,6 @@ import NewsSection from '../../components/NewsSection';
 class CurrencyPage extends Component {
 
 	componentDidMount() {
-		this.props.getHeadlines('bitcoin');
 		this.props.getPopularArticles('bitcoin');
 		this.props.getRecentArticles('bitcoin');
 	}
@@ -33,7 +32,6 @@ CurrencyPage.propTypes = {
 	headlines: PropTypes.array,
 	mainArticle: PropTypes.object,
 	match: PropTypes.object,
-	getHeadlines: PropTypes.func,
 	getPopularArticles: PropTypes.func,
 	getRecentArticles: PropTypes.func,
 };

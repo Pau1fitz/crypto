@@ -1,8 +1,6 @@
 import CurrencyPage from "./CurrencyPage";
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-
-import { getHeadlines } from '../../actions/headlineActions';
 import { getPopularArticles, getRecentArticles } from '../../actions/articleActions';
 
 
@@ -21,7 +19,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
 
 	return bindActionCreators({
-		getHeadlines,
 		getPopularArticles,
 		getRecentArticles
 	},dispatch);

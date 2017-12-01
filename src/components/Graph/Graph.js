@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { LineChart, Line, YAxis } from 'recharts';
+import { LineChart, Line } from 'recharts';
 import moment from 'moment';
 
 import './Graph.css';
@@ -36,7 +36,7 @@ class Graph extends Component {
 
 	setContainerWidth = () => {
 		this.setState({
-			width: document.querySelectorAll('.chart-container')[0].offsetWidth / 2
+			width: document.querySelectorAll('.chart-container')[0].offsetWidth * 0.66
 		});
 	}
 

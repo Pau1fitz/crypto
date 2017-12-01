@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { getPrices } from './actions/priceActions';
+import { getHeadlines } from './actions/headlineActions';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 
@@ -17,7 +18,7 @@ class App extends Component {
 
 	componentDidMount() {
 
-
+		this.props.getHeadlines('bitcoin');
 		this.props.getPrices();
 
 	}
@@ -59,13 +60,15 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
 
 	return bindActionCreators({
-		getPrices
+		getPrices,
+		getHeadlines
 	},dispatch);
 
 };
 
 App.propTypes = {
 	getPrices: PropTypes.func,
+	getHeadlines: PropTypes.func,
 	headlines: PropTypes.array,
 	prices: PropTypes.array,
 	mainArticle: PropTypes.object
