@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from './logo.png';
 import { Link, NavLink } from 'react-router-dom';
 import './Header.css';
 
@@ -9,7 +10,7 @@ const Header = () => {
 			<div className='header-container'>
 				<Link to="/">
 					<div className='logo-container'>
-						<div className='circle-logo' />
+						<img className='logo' src={logo} />
 						<h2 className='title'>Bitcoin News</h2>
 					</div>
 				</Link>
