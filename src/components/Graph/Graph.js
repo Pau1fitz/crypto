@@ -77,7 +77,7 @@ class Graph extends Component {
 						{yValues}
 					</div>
 					<LineChart width={width} height={200} data={data} >
-						<Line dot={false} type="monotone" dataKey="amt" stroke="rgb(93, 68, 245)" />
+						<Line dot={false} type="monotone" dataKey="amt" stroke="#0F5DFF" />
 					</LineChart>
 				</div>
 				<div className='dates'>
