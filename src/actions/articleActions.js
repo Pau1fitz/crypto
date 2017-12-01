@@ -36,7 +36,7 @@ export const getPopularArticles = (currency) => {
 				return article.title;
 			}).filter(article => {
 				// remove no articles without an image
-				return article.urlToImage != null && article.urlToImage.charAt(0) == 'h' && article.description.indexOf(currency.substr(1)) !== -1;
+				return article.urlToImage != null && article.urlToImage.charAt(0) == 'h' && article.description && article.description.indexOf(currency.substr(1)) !== -1;
 			});
 			let mainArticle = res.articles.shift();
 			dispatch(getMainArticlesSuccess(mainArticle));
@@ -68,7 +68,6 @@ export const getRecentArticlesError= () => {
 	};
 };
 
-
 export const getRecentArticles = (currency) => {
 	return dispatch => {
 		dispatch(getRecentArticlesPending());
@@ -79,14 +78,14 @@ export const getRecentArticles = (currency) => {
 				return article.title;
 			}).filter(article => {
 				// remove no articles without an image
-				return article.urlToImage != null && article.urlToImage.charAt(0) == 'h' && article.description.indexOf(currency.substr(1)) !== -1;
+				return article.urlToImage != null && article.urlToImage.charAt(0) == 'h' && article.description && article.description.indexOf(currency.substr(1)) !== -1;
 			});
 			dispatch(getRecentArticlesSuccess(res.articles));
 		}).catch(err => {
 			dispatch(getRecentArticlesError(err));
 		});
 
-		const url = 'https://content.guardianapis.com/search?q=bitcoin&page-size=20&order-by=newest&api-key=0b413069-ba51-4cbb-aac8-2c0145d3dcb3'
+		const url = 'https://content.guardianapis.com/search?q=bitcoin&page-size=20&order-by=newest&api-key=0b413069-ba51-4cbb-aac8-2c0145d3dcb3';
 		fetch(url).then(res => {
 			return res.json();
 		}).then(res => {
@@ -98,7 +97,7 @@ export const getRecentArticles = (currency) => {
 					url: article.webUrl,
 					publishedAt: article.webPublicationDate,
 					urlToImage: 'https://tctechcrunch2011.files.wordpress.com/2014/02/bitcoin-perfecthue.jpg'
-				}
+				};
 			});
 			dispatch(getRecentArticlesSuccess(articles));
 		});
