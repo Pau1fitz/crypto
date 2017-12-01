@@ -6,7 +6,8 @@ import { getGraphData } from '../../actions/graphActions';
 const mapStateToProps = (state) => {
 
 	return {
-		data: state.graphReducer.graphData
+		data: state.graphReducer.graphData,
+		prices: state.priceReducer.prices,
 	};
 
 };

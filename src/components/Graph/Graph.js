@@ -18,6 +18,7 @@ class Graph extends Component {
 	}
 
 	componentWillReceiveProps(nextProps){
+
 		if(nextProps.data != this.props.data) {
 
 			let data = Object.keys(nextProps.data).map(value => {
