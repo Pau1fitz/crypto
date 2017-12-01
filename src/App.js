@@ -30,7 +30,7 @@ class App extends Component {
 					<Header />
 					<div className='main-container'>
 						<div className='main-content'>
-							<Route path="/home" render={(routeProps)=>	<CurrencyPage {...routeProps} />}/>
+							<Route exact path="/" render={(routeProps)=>	<CurrencyPage {...routeProps} />}/>
 							<Route path="/graph" render={(routeProps)=>	<GraphPage {...routeProps} />}/>
 						</div>
 						<div className='prices-content'>
