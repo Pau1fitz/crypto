@@ -55,3 +55,9 @@
 	position: relative;
 	top: 6px;
 }
+
+@media (max-width:680px)  {
+	.prices-content {
+		display: none;
+	}
+}

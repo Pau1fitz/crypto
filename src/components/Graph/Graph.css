@@ -53,3 +53,18 @@
 	text-transform: uppercase;
 	font-size: 12px;
 }
+
+@media (max-width:680px)  {
+	.dates {
+		width: 100%;
+		margin: 0;
+	}
+
+	.chart {
+		width: 100%;
+	}
+
+	.chart .values {
+		display: none;
+	}
+}

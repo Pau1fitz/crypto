@@ -79,7 +79,7 @@ class Graph extends Component {
 					<div className='values'>
 						{yValues}
 					</div>
-					<LineChart width={width} height={200} data={data} >
+					<LineChart width={screen.width < 600 ? screen.width - 50 : width} height={200} data={data} >
 						<Line dot={false} type="monotone" dataKey="amt" stroke="#0F5DFF" />
 					</LineChart>
 				</div>

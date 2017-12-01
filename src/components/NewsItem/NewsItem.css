@@ -14,3 +14,10 @@
 	color: #000;
 	cursor: pointer;
 }
+
+@media (max-width:680px)  {
+	.main-news-item {
+		list-style-type: none;
+		width: 100%;
+	}
+}
