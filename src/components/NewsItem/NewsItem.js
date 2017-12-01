@@ -16,10 +16,10 @@ class NewsItem extends Component {
 
 		return (
 			<li className='main-news-item'>
+				<div className='image-container'>
+					<img onError={this.addDefaultImg} src={ image } alt='article-image' />
+				</div>
 				<a href={ article.url }>
-					<div className='image-container'>
-						<img onError={this.addDefaultImg} src={ image } alt='article-image' />
-					</div>
 					<p className='title-text'>{ article.title  }</p>
 				</a>
 			</li>

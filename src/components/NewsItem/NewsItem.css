@@ -1,7 +1,6 @@
 .main-news-item {
 	list-style-type: none;
 	width: 32%;
-	cursor: pointer;
 }
 
 .main-news-item img {
@@ -13,4 +12,5 @@
 	font-size: 12px;
 	padding: 10px 0;
 	color: #000;
+	cursor: pointer;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { LineChart, Line } from 'recharts';
+import { LineChart, Line, YAxis } from 'recharts';
+import moment from 'moment';
 
 import './Graph.css';
 
@@ -43,21 +44,40 @@ class Graph extends Component {
 
 		const { data, width } = this.state;
 
-		let baseValues = Object.keys(this.props.data).map((value, i) => {
-			if(i % 12 == 0) {
-				return value;
+		let xValues = Object.keys(this.props.data).map((value, i) => {
+			if(i % 30 == 0) {
+				return (
+					<p key={i}>{ moment(value).format('MMM') }</p>
+				);
 			}
 		}).filter(item => {
 			return item != undefined;
 		});
 
+		let maxVal = Math.ceil(Math.max(...Object.values(this.props.data)) / 100) * 100;
+
+		let values = [0 , maxVal/4 , maxVal/ 2, (maxVal / 4) * 3, maxVal].filter(val => {
+			return isFinite(val);
+		}).reverse();
+
+		let yValues = values.map(value => {
+			return (
+				<p key={value}>{ value }</p>
+			);
+		});
+
 		return(
 			<div className='chart-container'>
-				<LineChart width={width} height={200} data={data} >
-					<Line dot={false} type="monotone" dataKey="amt" stroke="rgb(93, 68, 245)" />
-				</LineChart>
-				<div>
-					{ baseValues }
+				<div className='chart'>
+					<div className='values'>
+						{yValues}
+					</div>
+					<LineChart width={width} height={200} data={data} >
+						<Line dot={false} type="monotone" dataKey="amt" stroke="rgb(93, 68, 245)" />
+					</LineChart>
+				</div>
+				<div className='dates'>
+					{ xValues }
 				</div>
 			</div>
 		);
