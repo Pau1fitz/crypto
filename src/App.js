@@ -25,13 +25,13 @@ class App extends Component {
 
 	render() {
 		return (
-			<Router>
+			<Router basename="bitcoin/">
 				<div className="App">
 					<Header />
 					<div className='main-container'>
 						<div className='main-content'>
 							<Route exact path="/" render={(routeProps)=>	<CurrencyPage {...routeProps} />}/>
-							<Route path="/graph" render={(routeProps)=>	<GraphPage {...routeProps} />}/>
+							<Route path="/info" render={(routeProps)=>	<GraphPage {...routeProps} />}/>
 						</div>
 						<div className='prices-content'>
 							<Prices prices={ this.props.prices } />

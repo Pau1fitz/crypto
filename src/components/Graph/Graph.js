@@ -69,8 +69,11 @@ class Graph extends Component {
 
 		return(
 			<div className='chart-container'>
-				<div>
-					<p className='current-price'><span className='current'>Current Price:</span> { this.props.prices[0] ? `$${ parseFloat(this.props.prices[0].price_usd).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,')}` : 0}</p>
+				<div className='bitcoin-details'>
+					<p className='current-price'><span className='current'>BTC Current Price:</span> { this.props.prices[0] ? `$${ parseFloat(this.props.prices[0].price_usd).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,')}` : 0}</p>
+					<p className='current-time'><span className='current-time-span'>Change 1 hour:</span> { this.props.prices[0] ? this.props.prices[0].percent_change_1h : 0}%</p>
+					<p className='current-time'><span className='current-time-span'>Change 24 hour:</span> { this.props.prices[0] ? this.props.prices[0].percent_change_24h : 0}%</p>
+					<p className='current-time'><span className='current-time-span'>Change 7 day:</span> { this.props.prices[0] ? this.props.prices[0].percent_change_7d : 0}%</p>
 				</div>
 				<div className='chart'>
 					<div className='values'>

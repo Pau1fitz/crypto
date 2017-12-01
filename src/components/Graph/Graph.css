@@ -1,3 +1,7 @@
+.bitcoin-details {
+	padding-bottom: 25px;
+}
+
 .chart-container {
 	padding: 25px;
 }
@@ -10,6 +14,17 @@
 
 .current {
 	font-size: 18px;
+	color: rgb(160, 160, 160);
+}
+
+.current-time {
+	display: flex;
+	justify-content: space-between;
+	width: 200px;
+}
+
+.current-time-span {
+	font-size: 14px;
 	color: rgb(160, 160, 160);
 }
 
