@@ -62,7 +62,7 @@ class Graph extends Component {
 
 		let yValues = values.map(value => {
 			return (
-				<p key={value}>{ value }</p>
+				<p key={value}>${ value }</p>
 			);
 		});
 
