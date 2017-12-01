@@ -27,9 +27,10 @@ export const getMainArticlesSuccess = (mainArticle) => {
 };
 
 export const getPopularArticles = (currency) => {
+	let date = new Date().toLocaleDateString('en-GB').split('/').reverse().join('-');
 	return dispatch => {
 		dispatch(getPopularArticlesPending());
-		fetch(`https://newsapi.org/v2/everything?q=${currency}&language=en&from=2017-11-29&to=2017-11-29&language=en&sortBy=popularity&apiKey=b0069dc818df4b2a89841b2282f19e58`).then(res => {
+		fetch(`https://newsapi.org/v2/everything?q=${currency}&language=en&from=${date}&to=${date}&language=en&sortBy=popularity&apiKey=b0069dc818df4b2a89841b2282f19e58`).then(res => {
 			return res.json();
 		}).then(res => {
 			res.articles = uniqBy(res.articles, (article) => {
@@ -101,5 +102,20 @@ export const getRecentArticles = (currency) => {
 			});
 			dispatch(getRecentArticlesSuccess(articles));
 		});
+
+		fetch("https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=a1dae6398cd548c3a3a8b4dc3f8d79e7&q=bitcoin").then(res => {
+			return res.json();
+		}).then(res => {
+			let articles = res.response.docs.map(article => {
+				return {
+					title: article.snippet,
+					url: article.web_url,
+					publishedAt: article.pub_date,
+					urlToImage: article.multimedia[0] && article.multimedia[0].url ? `http://nytimes.com/${article.url}` : 'https://tctechcrunch2011.files.wordpress.com/2014/02/bitcoin-perfecthue.jpg'
+				};
+			});
+			dispatch(getRecentArticlesSuccess(articles));
+		});
+
 	};
 };

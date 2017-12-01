@@ -36,4 +36,5 @@ export const getHeadlines = (currency) => {
 			dispatch(getHeadlinesError(err));
 		});
 	};
+
 };

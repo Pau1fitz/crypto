@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import { getNewsSources } from '../../actions/newsSourceActions';
 
 
-
-const mapStateToProps = (state) => {
+const mapStateToProps = () => {
 
 	return {
 

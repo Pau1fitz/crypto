@@ -20,7 +20,7 @@ class NewsSourcePage extends Component {
 };
 
 NewsSourcePage.propTypes = {
-
+	getNewsSources: PropTypes.func
 };
 
 export default NewsSourcePage;
