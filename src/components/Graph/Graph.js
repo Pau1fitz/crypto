@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { LineChart, XAxis, Line } from 'recharts';
+import { LineChart, Line } from 'recharts';
 
 import './Graph.css';
 
@@ -35,7 +35,7 @@ class Graph extends Component {
 
 	setContainerWidth = () => {
 		this.setState({
-			width: document.querySelectorAll('.chart-container')[0].offsetWidth
+			width: document.querySelectorAll('.chart-container')[0].offsetWidth / 2
 		});
 	}
 
@@ -43,12 +43,22 @@ class Graph extends Component {
 
 		const { data, width } = this.state;
 
+		let baseValues = Object.keys(this.props.data).map((value, i) => {
+			if(i % 12 == 0) {
+				return value;
+			}
+		}).filter(item => {
+			return item != undefined;
+		});
+
 		return(
 			<div className='chart-container'>
-				<LineChart width={width} height={400} data={data} >
-					<XAxis dataKey="price" tickSize={0} />
+				<LineChart width={width} height={200} data={data} >
 					<Line dot={false} type="monotone" dataKey="amt" stroke="rgb(93, 68, 245)" />
 				</LineChart>
+				<div>
+					{ baseValues }
+				</div>
 			</div>
 		);
 	}
@@ -56,7 +66,10 @@ class Graph extends Component {
 
 Graph.propTypes = {
 	getGraphData: PropTypes.func,
-	data: PropTypes.object
+	data: PropTypes.oneOfType([
+		PropTypes.array,
+		PropTypes.object
+	])
 };
 
 export default Graph;

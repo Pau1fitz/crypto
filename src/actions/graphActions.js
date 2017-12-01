@@ -20,7 +20,7 @@ export const getGraphDataError = () => {
 export const getGraphData = () => {
 	return dispatch => {
 		dispatch(getGraphDataPending());
-		fetch('https://api.coindesk.com/v1/bpi/historical/close.json?start=2017-11-25&end=2017-11-30').then(res => {
+		fetch('https://api.coindesk.com/v1/bpi/historical/close.json?start=2017-01-25&end=2017-11-30').then(res => {
 			return res.json();
 		}).then(res => {
 			dispatch(getGraphDataSuccess(res.bpi));
