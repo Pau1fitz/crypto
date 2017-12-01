@@ -2,6 +2,11 @@
 	padding: 25px;
 }
 
+.current-price {
+	font-weight: 800;
+	padding-bottom: 25px;
+}
+
 .chart {
 	display: flex;
 }
@@ -9,7 +14,7 @@
 .chart .values {
 	display: flex;
 	flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 	width: 50px;
 	font-size: 12px;
 }
@@ -19,6 +24,8 @@
 	width: 68%;
 	justify-content: space-between;
 	margin-left: 50px;
+	padding-top: 10px;
+	border-top: 1px solid #ffde00;
 }
 
 .dates p {

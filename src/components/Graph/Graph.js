@@ -69,6 +69,11 @@ class Graph extends Component {
 
 		return(
 			<div className='chart-container'>
+				<div>
+
+
+					<p className='current-price'>Current Price: { this.props.prices[0] ? `$${ parseFloat(this.props.prices[0].price_usd).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,')}` : 0}</p>
+				</div>
 				<div className='chart'>
 					<div className='values'>
 						{yValues}
@@ -87,6 +92,7 @@ class Graph extends Component {
 
 Graph.propTypes = {
 	getGraphData: PropTypes.func,
+	prices: PropTypes.array,
 	data: PropTypes.oneOfType([
 		PropTypes.array,
 		PropTypes.object
