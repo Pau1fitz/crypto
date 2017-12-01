@@ -5,6 +5,12 @@
 .current-price {
 	font-weight: 800;
 	padding-bottom: 25px;
+	font-size: 28px;
+}
+
+.current {
+	font-size: 18px;
+	color: rgb(160, 160, 160);
 }
 
 .chart {

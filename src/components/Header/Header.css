@@ -4,6 +4,11 @@
 	flex-direction: row;
 	align-items: center;
 	padding: 15px 0;
+	justify-content: space-between;
+}
+
+.logo-container {
+	display: flex;
 }
 
 .circle-logo {
@@ -12,4 +17,22 @@
 	border-radius: 50%;
 	background: #ffde00;
 	margin: 0 10px 0 15px;
+}
+
+.title {
+	color: #000;
+}
+
+.header-menu {
+	padding-right: 30px;
+}
+
+.header-menu a {
+	margin: 0 15px;
+	padding-bottom: 5px;
+	color: #000;
+}
+
+.active {
+	border-bottom: 2px solid #ffde00;
 }
