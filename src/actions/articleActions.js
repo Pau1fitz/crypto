@@ -27,10 +27,12 @@ export const getMainArticlesSuccess = (mainArticle) => {
 };
 
 export const getPopularArticles = (currency) => {
-	let date = new Date().toLocaleDateString('en-GB').split('/').reverse().join('-');
+	let date = new Date();
+	let today = date.toLocaleDateString('en-GB').split('/').reverse().join('-');
+	let yesterday = new Date(date.getTime() - 24*60*60*1000).toLocaleDateString('en-GB').split('/').reverse().join('-');
 	return dispatch => {
 		dispatch(getPopularArticlesPending());
-		fetch(`https://newsapi.org/v2/everything?q=${currency}&language=en&from=${date}&to=${date}&language=en&sortBy=popularity&apiKey=b0069dc818df4b2a89841b2282f19e58`).then(res => {
+		fetch(`https://newsapi.org/v2/everything?q=${currency}&language=en&from=${yesterday}&to=${today}&language=en&sortBy=popularity&apiKey=b0069dc818df4b2a89841b2282f19e58`).then(res => {
 			return res.json();
 		}).then(res => {
 			res.articles = uniqBy(res.articles, (article) => {
